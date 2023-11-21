@@ -10,7 +10,7 @@ export default function App() {
     </View>
   );
 }
-
+// white: ffffff, green: 1db954, black: 191414
 const styles = StyleSheet.create({
   container: {
     flex: 1,
