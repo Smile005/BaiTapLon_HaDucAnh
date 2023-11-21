@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View, SafeAreaView, Pressable } from "react-native";
-import React ,{useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { Entypo, MaterialIcons, AntDesign } from "@expo/vector-icons";
-import * as AppAuth from "expo-app-auth";
+import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import ArtistCard from "../components/ArtistCard";
+import RecentlyPlayedCard from "../components/RecentlyPlayedCard";
 import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
