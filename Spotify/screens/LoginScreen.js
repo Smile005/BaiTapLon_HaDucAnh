@@ -5,6 +5,12 @@ import { Entypo, MaterialIcons, AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
+    const user = {
+        name: "HaDucAnh",
+        avatar: require('../assets/Gengar.png'),
+        email: "haducanh1802@gmail.com"
+    }
+
     const nav = useNavigation()
     return (
         <LinearGradient colors={["#040306", "#131624"]} style={{ flex: 1 }}>
@@ -15,7 +21,11 @@ const LoginScreen = () => {
 
                 <View style={{ height: 80 }} />
                 <Pressable style={styles.press1}
-                    onPress={() => { nav.navigate("Main") }}
+                    onPress={() => {
+                        nav.navigate("Main", {
+                            user: user
+                        })
+                    }}
                 >
                     <Text style={{ fontWeight: 500 }}>Sign In with spotify</Text>
                 </Pressable>

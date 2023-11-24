@@ -8,19 +8,59 @@ import RecentlyPlayedCard from "../components/RecentlyPlayedCard";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 const HomeScreen = () => {
+    const artist = [
+        {
+          "name": "Alicia",
+          "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/877.jpg",
+        },
+        {
+          "name": "Ressie",
+          "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/799.jpg",
+        },
+        {
+          "name": "Dallas",
+          "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/199.jpg",
+        },
+        {
+          "name": "Athena",
+          "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/102.jpg",
+        },
+        {
+          "name": "Ramona",
+          "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/597.jpg",
+        },
+        {
+          "name": "Emelia",
+          "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/886.jpg",
+        },
+        {
+          "name": "Rogers",
+          "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/619.jpg",
+        },
+        {
+          "name": "Deon",
+          "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/747.jpg",
+        },
+        {
+          "name": "Bryana",
+          "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/767.jpg",
+        },
+        {
+          "name": "Gaston",
+          "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/525.jpg",
+        }
+      ]
+
     const nav = useNavigation()
     const rou = useRoute()
     const [recentlyplayed, setRecentlyPlayed] = useState([]);
-    const [topArtists, setTopArtists] = useState([]);
+    const [topArtists, setTopArtists] = useState(artist);
 
     useEffect(() => {
         const renderData = async () => {
-            const dataRender1 = await axios.get(`https://65573b3dbd4bcef8b6124a3b.mockapi.io/api/v1/song`)
-            const dataRender2 = await axios.get(`https://65573b3dbd4bcef8b6124a3b.mockapi.io/api/v1/artist`)
-            setRecentlyPlayed(dataRender1.data)
-            setTopArtists(dataRender2.data)
-            console.log(dataRender1.data[0]);
-            console.log(dataRender2.data[0]);
+            const dataRender = await axios.get(`https://65573b3dbd4bcef8b6124a3b.mockapi.io/api/v1/song`)
+            setRecentlyPlayed(dataRender.data)
+            console.log(dataRender.data[0]);
         }
         renderData()
     }, [])
@@ -72,7 +112,6 @@ const HomeScreen = () => {
                         </LinearGradient>
                         <Text style={styles.text2}>Liked Songs</Text>
                     </Pressable>
-
                     <View style={styles.view3}>
                         <Image style={{ width: 55, height: 55 }} source={{ uri: "https://i.pravatar.cc/100" }} />
                         <View>
@@ -88,7 +127,6 @@ const HomeScreen = () => {
                             <Text style={styles.text2}>Sơn Tùng MTP</Text>
                         </View>
                     </View>
-
                     <View style={styles.view3}>
                         <Image style={{ width: 55, height: 55 }} source={{ uri: "https://i.pravatar.cc/103" }} />
                         <View>
