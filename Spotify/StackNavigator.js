@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import LoginScreen from "./screens/LoginScreen";
+import LikedSong from "./screens/LikedSong";
 
 const Tab = createBottomTabNavigator();
 
@@ -61,8 +62,10 @@ function Navigation() {
     return (
         <NavigationContainer>
             <Stack.Navigator screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="Login" component={LoginScreen} />
+                {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
                 <Stack.Screen name="Main" component={BottomTabs} />
+                <Stack.Screen name="Liked" component={LikedSong} />
+                
             </Stack.Navigator>
         </NavigationContainer>
     )

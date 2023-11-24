@@ -1,8 +1,6 @@
-import Navigation from "./StackNavigation"
-import HomeScreen from "./screens/HomeScreen";
+import Navigation from "./StackNavigator";
 
 export default function App() {
-
   return (
     <>
       <Navigation />
