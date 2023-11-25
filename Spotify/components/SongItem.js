@@ -9,22 +9,23 @@ const SongItem = ({ item }) => {
   const isPlaying = false
 
   return (
-    <Pressable style={styles.press1}
-      onPress={() => nav.navigate("Info", {
-        item: item
-      })}
-    >
-      <Image style={styles.img1} source={{ uri: item?.picture }} />
-      <View style={{ flex: 1 }}>
-        <Text numberOfLines={1} style={isPlaying ? styles.textPlay : styles.textStop}>{item?.name}</Text>
-        <Text style={{ marginTop: 4, color: "#989898" }}>{item?.artist}</Text>
-      </View>
+    <View style={styles.press1} >
+      <Pressable style={{ width: "90%", flexDirection: 'row' }}
+        onPress={() => nav.navigate("Info", {
+          item: item
+        })}>
+        <Image style={styles.img1} source={{ uri: item?.picture }} />
+        <View style={{ flex: 1 }}>
+          <Text numberOfLines={1} style={isPlaying ? styles.textPlay : styles.textStop}>{item?.name}</Text>
+          <Text style={{ marginTop: 4, color: "#989898" }}>{item?.artist}</Text>
+        </View>
+      </Pressable>
 
       <View style={styles.view1}>
         <AntDesign name="heart" size={24} color="#1DB954" />
         <Entypo name="dots-three-vertical" size={24} color="#C0C0C0" />
       </View>
-    </Pressable>
+    </View>
   );
 };
 
