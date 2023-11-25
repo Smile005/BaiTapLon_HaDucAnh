@@ -10,7 +10,7 @@ import SongInfoScreen from "./screens/SongInfoScreen";
 
 const Tab = createBottomTabNavigator();
 
-function BottomTabs({ nav, rou }) {
+function BottomTabs() {
     return (
         <Tab.Navigator
             screenOptions={{
@@ -62,9 +62,9 @@ const Stack = createNativeStackNavigator();
 function Navigation() {
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="Login" component={LoginScreen} />
-                <Stack.Screen name="Main" component={BottomTabs} />
+            <Stack.Navigator screenOptions={{ headerShown: true }}>
+                {/* <Stack.Screen name="Login" component={LoginScreen} />
+                <Stack.Screen name="Main" component={BottomTabs} /> */}
                 <Stack.Screen name="Liked" component={LikedSongScreen} />
                 <Stack.Screen name="Info" component={SongInfoScreen} />
             </Stack.Navigator>

@@ -1,53 +1,26 @@
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
-import React ,{useContext} from  "react";
+import React, { useContext } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
-// import { Player } from "../PlayerContext";
+import { useNavigation } from "@react-navigation/native";
 
-const SongItem = ({ item, onPress, isPlaying }) => {
-  const { currentTrack, setCurrentTrack } = useContext(Player);
-  const handlePress = () => {
-    setCurrentTrack(item);
-    onPress(item)
-  } 
+const SongItem = ({ item }) => {
+  const nav = useNavigation()
+  const isPlaying = false
+
   return (
-    <Pressable
-    onPress={handlePress}
-      style={{ flexDirection: "row", alignItems: "center", padding: 10 }}
+    <Pressable style={styles.press1}
+      onPress={() => nav.navigate("Info", {
+        item: item
+      })}
     >
-      <Image
-        style={{ width: 50, height: 50, marginRight: 10 }}
-        source={{ uri: item?.track?.album?.images[0].url }}
-      />
-
+      <Image style={styles.img1} source={{ uri: item?.picture }} />
       <View style={{ flex: 1 }}>
-        <Text
-          numberOfLines={1}
-          style={
-            isPlaying
-              ? {
-                  fontWeight: "bold",
-                  fontSize: 14,
-                  color: "#3FFF00",
-                }
-              : { fontWeight: "bold", fontSize: 14, color: "white" }
-          }
-        >
-          {item?.track?.name}
-        </Text>
-        <Text style={{ marginTop: 4, color: "#989898" }}>
-          {item?.track?.artists[0].name}
-        </Text>
+        <Text numberOfLines={1} style={isPlaying ? styles.textPlay : styles.textStop}>{item?.name}</Text>
+        <Text style={{ marginTop: 4, color: "#989898" }}>{item?.artist}</Text>
       </View>
 
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 7,
-          marginHorizontal: 10,
-        }}
-      >
+      <View style={styles.view1}>
         <AntDesign name="heart" size={24} color="#1DB954" />
         <Entypo name="dots-three-vertical" size={24} color="#C0C0C0" />
       </View>
@@ -57,4 +30,31 @@ const SongItem = ({ item, onPress, isPlaying }) => {
 
 export default SongItem;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  press1: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 10
+  },
+  img1: {
+    width: 50,
+    height: 50,
+    marginRight: 10
+  },
+  view1: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 7,
+    marginHorizontal: 10,
+  },
+  textPlay: {
+    fontWeight: "bold",
+    fontSize: 14,
+    color: "#3FFF00"
+  },
+  textStop: {
+    fontWeight: "bold",
+    fontSize: 14,
+    color: "white"
+  }
+});

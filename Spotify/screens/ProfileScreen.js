@@ -2,6 +2,7 @@ import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import axios from "axios";
+import { useRoute } from "@react-navigation/native";
 
 const ProfileScreen = () => {
   const user = {
@@ -15,7 +16,7 @@ const ProfileScreen = () => {
 
   useEffect(() => {
     const renderData = async () => {
-      const dataRender = await axios.get(`https://65573b3dbd4bcef8b6124a3b.mockapi.io/api/v1/song`)
+      const dataRender = await axios.get(`https://65573b3dbd4bcef8b6124a3b.mockapi.io/api/v1/playlist`)
       setPlaylists(dataRender.data)
       console.log(dataRender.data[0]);
     }
@@ -43,16 +44,16 @@ const ProfileScreen = () => {
         </Text>
         <View style={{ padding: 15 }}>
           {playlists.map((item, index) => (
-            <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginVertical: 10 }} key={index}>
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginVertical: 10 }}>
               <Image style={{ width: 50, height: 50, borderRadius: 4 }}
                 source={{
-                  uri: item?.picture ||
+                  uri: item?.avatar ||
                     "https://images.pexels.com/photos/3944091/pexels-photo-3944091.jpeg?auto=compress&cs=tinysrgb&w=800",
                 }}
               />
               <View>
                 <Text style={{ color: "white" }}>{item?.name}</Text>
-                <Text style={{ color: "white", marginTop: 7 }}>0 followers</Text>
+                <Text style={{ color: "white", marginTop: 7 }}>{item?.followers} followers</Text>
               </View>
             </View>
           ))}

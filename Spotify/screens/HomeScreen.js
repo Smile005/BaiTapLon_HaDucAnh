@@ -103,7 +103,9 @@ const HomeScreen = () => {
 
                 <View style={styles.view3}>
                     <Pressable style={styles.press2}
-                        onPress={() => { nav.navigate("Liked") }}
+                        onPress={() => { nav.navigate("Liked",{
+                            list: recentlyplayed
+                        }) }}
                     >
                         <LinearGradient colors={["#33006F", "#FFFFFF"]}>
                             <Pressable style={styles.press3}>
