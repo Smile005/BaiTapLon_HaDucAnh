@@ -62,7 +62,7 @@ const Stack = createNativeStackNavigator();
 function Navigation() {
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: true }}>
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
                 {/* <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen name="Main" component={BottomTabs} /> */}
                 <Stack.Screen name="Liked" component={LikedSongScreen} />

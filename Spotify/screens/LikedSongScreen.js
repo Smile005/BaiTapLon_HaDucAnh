@@ -18,7 +18,7 @@ const LikedSongsScreen = () => {
       .then((reponse) => reponse.json())
       .then((json) => {
         var newarr = json.filter((item) => {
-          return item.liked === true
+          return item.liked == true
         })
         setLikedSong(newarr)
         console.log(newarr[0])

@@ -126,13 +126,13 @@ const HomeScreen = () => {
                     <View style={styles.view3}>
                         <Image style={{ width: 55, height: 55 }} source={{ uri: "https://i.pravatar.cc/101" }} />
                         <View>
-                            <Text style={styles.text2}>Sơn Tùng MTP</Text>
+                            <Text style={styles.text2}>Chi Pu</Text>
                         </View>
                     </View>
                     <View style={styles.view3}>
                         <Image style={{ width: 55, height: 55 }} source={{ uri: "https://i.pravatar.cc/103" }} />
                         <View>
-                            <Text style={styles.text2}>Sơn Tùng MTP</Text>
+                            <Text style={styles.text2}>Alan Walker</Text>
                         </View>
                     </View>
                 </View>

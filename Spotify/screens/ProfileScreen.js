@@ -44,7 +44,7 @@ const ProfileScreen = () => {
         </Text>
         <View style={{ padding: 15 }}>
           {playlists.map((item, index) => (
-            <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginVertical: 10 }}>
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginVertical: 10 }} key={index}>
               <Image style={{ width: 50, height: 50, borderRadius: 4 }}
                 source={{
                   uri: item?.avatar ||
